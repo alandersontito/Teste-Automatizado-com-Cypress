@@ -1,0 +1,25 @@
+{
+  "name": "teste-automatizado-com-cypress",
+  "version": "1.0.0",
+  "description": "Teste em um sistema de Fintech Fictícia - Paybank",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alandersontito/Teste-Automatizado-com-Cypress.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alandersontito/Teste-Automatizado-com-Cypress/issues"
+  },
+  "homepage": "https://github.com/alandersontito/Teste-Automatizado-com-Cypress#readme",
+  "dependencies": {
+    "bullmq": "^5.58.5",
+    "cypress": "^15.2.0",
+    "pg-promise": "^12.1.3"
+  }
+}
