@@ -103,51 +103,51 @@ Cypress.Commands.add('clsButton', () => {
 
 // Código 2FA [PG4] //
 
-// Cypress.Commands.add('code2FA',() =>{
+Cypress.Commands.add('code2FA',() =>{
 
-//     cy.intercept('POST', '/api/login').as('codeRequest')
-//     cy.wait('@codeRequest', { timeout: 4000 }).then((interception) => {
-//     expect(interception.response.statusCode).to.eq(200)
-//     cy.log('Resposta:', interception.response.body)
-// })
+    cy.intercept('POST', '/api/login').as('codeRequest')
+    cy.wait('@codeRequest', { timeout: 4000 }).then((interception) => {
+    expect(interception.response.statusCode).to.eq(200)
+    cy.log('Resposta:', interception.response.body)
+})
 
-//     cy.task("obtercodigo2FA").then((codigo) =>{
-//     cy.log("Código:", codigo);
-//     expect(codigo).to.not.be.null
+    cy.task("obtercodigo2FA").then((codigo) =>{
+    cy.log("Código:", codigo);
+    expect(codigo).to.not.be.null
     
-//     cy.get('input[class="input input-bordered text-center text-2xl tracking-widest"]').type(codigo)
-//     })
+    cy.get('input[class="input input-bordered text-center text-2xl tracking-widest"]').type(codigo)
+    })
     
-//     cy.get('button[class="btn btn-primary w-full "]') .click()
+    cy.get('button[class="btn btn-primary w-full "]') .click()
 
-// })
+})
 
 // Código 2FA [REDIS] //
 
-Cypress.Commands.add('Rcode2FA', () => {
+// Cypress.Commands.add('Rcode2FA', () => {
 
-    //Pegar código
+//     //Pegar código
     
-    cy.task("get2FAJob").then((job) => {                                 // A const job vai aguardar o getJob
+//     cy.task("get2FAJob").then((job) => {                                 // A const job vai aguardar o getJob
         
-        expect(job).to.exist;                                         // A expectativa é que exista um job
-        expect(job).to.have.property('code');                   // E que dentro desse job exista o campo code
+//         expect(job).to.exist;                                         // A expectativa é que exista um job
+//         expect(job).to.have.property('code');                   // E que dentro desse job exista o campo code
 
-        const codigo = job.code                              // define-se a constante codigo com os atributos de job.data.code
-        cy.log(`Código do 2FA: ${codigo}`);                      // loga no console o código em questão
+//         const codigo = job.code                              // define-se a constante codigo com os atributos de job.data.code
+//         cy.log(`Código do 2FA: ${codigo}`);                      // loga no console o código em questão
     
-    //Limpar a fila
+//     //Limpar a fila
 
-    cy.task("clear2FAJobs"); 
+//     cy.task("clear2FAJobs"); 
 
-    // Inserir Código
+//     // Inserir Código
 
-    cy.get('input[class="input input-bordered text-center text-2xl tracking-widest"]').type(codigo)
+//     cy.get('input[class="input input-bordered text-center text-2xl tracking-widest"]').type(codigo)
     
-    cy.get('button[class="btn btn-primary w-full "]') .click()
+//     cy.get('button[class="btn btn-primary w-full "]') .click()
     
-    });
-});
+//     });
+// });
 
 // Código 2FA incorreto //
 

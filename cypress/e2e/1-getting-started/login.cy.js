@@ -9,13 +9,13 @@ describe('Paybank - Path Happy', () => {
         cy.accessPage()
         cy.fillCPF()
         cy.fillPassword()
-        cy.Rcode2FA()                 // 2FA via REDIS
-        // cy.code2FA()              // 2FA via BD
+        // cy.Rcode2FA()                 // 2FA via REDIS
+        cy.code2FA()              // 2FA via BD
         cy.getBalance()             // log
     })
 })
     
-// // Login - CPF Incorreto
+// Login - CPF Incorreto
 
 // describe('Paybank - Preenchendo com CPF Incorreto', () => {
 //     it('Deve retornar ao usuário que o cpf foi preenchido incorretamente', () => {
