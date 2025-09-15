@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'cypress/base:22.19.0'
+            args '-- network qatw-primeira-edicao_skynet'
+        }
+    }
 
     stages {
         stage('Node.js Deps') {
